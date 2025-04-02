@@ -1,0 +1,362 @@
+
+html{
+  scroll-behavior: smooth;
+}
+
+
+/*--------------------------- 헤더------------------- */
+header{
+  width: 1300px;
+  /* border: 1px solid #000; */
+  margin: auto;
+}
+header .logo{
+  text-align: center;
+  margin: 40px 0;
+}
+header .logo img{
+  width:200px
+}
+
+/* 메뉴 */
+nav{
+  border: 1px solid #4d4d4d;
+  height: 50px; 
+  border-radius: 35px;
+}
+nav ul{
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 250px;
+}
+
+nav ul li a{
+  font-family: 'Raleway', sans-serif;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/*--------------- 메인비주얼 ------------------- */
+main{
+  height: 700px;
+  margin-top: 50px;
+  background-image: url(../image/main.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+
+  /* background: url(/image/AKMU.jpg) no-repeat center/cover fixed;  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main h2{
+  font-family: 'KakaoBigSans-ExtraBold';
+  color: azure;
+  font-size: 80px;
+  font-weight: 800;
+}
+
+
+/* ------------------------섹션---------------------- */
+/* 공통 */
+h3{
+  font-family:'KakaoSmallSans-Bold';
+  color: #4d4d4d;
+  font-size: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px  0;
+}
+h4{
+  font-family:'KakaoSmallSans-Bold';
+  color: #4d4d4d;
+  font-size: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;   
+  font-weight: 400;
+  text-decoration: underline;
+}
+h5{
+  font-family:'GmarketSansMedium';
+  color: #4d4d4d;
+  font-size: 32px;
+  font-weight: 100;
+  text-align: center;
+  margin-bottom: 30px;
+}
+p{ 
+  font-size: 18px;
+  font-family:'S-CoreDream-3Light';
+  font-weight: 50px;
+}
+
+.section-inner{
+  /* border: 1px solid #000; */
+  width: 1300px;
+  margin: auto;
+}
+
+
+
+/* 섹션1--BRAND IDENTITY,VIBE THE NEW FLOW */
+.s1{
+  padding-bottom: 100px;
+}
+.s1-content{
+  display: flex;
+  align-items: center;
+}
+.s1-left{
+  padding: 0 120px;
+  padding-bottom: 100px;
+  
+}
+.s1-right img{
+  width:500px ;
+  
+}
+
+
+/*--------- 섹션2 ARTIST 배너 */
+.gallery{
+  height: 70vh;
+  display: flex;
+  
+}
+.gallery li{
+  flex: 1;
+  position: relative;
+  height: 100%;
+  transition: 0.8s;
+  overflow: hidden;
+  
+}
+.gallery li:before{
+  content: attr(data-text);
+  position: absolute;
+  top: -100px;
+  left: 0;
+  z-index: 1;
+  background-color: rgb(26, 95, 116);
+  color: #fff;
+  font-size: 15px;
+  padding: 5px 10px;
+  transition: 0.8s;
+}
+.gallery li img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block; 
+}
+.gallery li .content{
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 350px;
+  background-color: rgb(26,95,116);
+  font-size: 15px;
+  color: #fff;
+  padding: 30px;
+  text-align: center;
+  transition: 0.5s;
+}
+.gallery li .content:before{  
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  background-color: rgb(26,95,116);
+  transform: rotate(45deg) translateX(-50%)
+}
+.gallery li .content h2{
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 26px;
+}
+.gallery li .content p{
+  margin: 20px 0;
+  line-height: 26px;
+}
+.gallery li .content a{
+  display: inline-block;
+  border: 1px solid #fff;
+  border-radius: 30px;
+  padding: 5px 20px;
+	font-size: 20px;
+	text-transform: uppercase;
+  margin-top: 20px;
+}
+
+
+/* Hover Effect */
+.gallery:hover li{flex: 1;}
+.gallery li:hover{flex: 3;}
+.gallery li:hover img{filter: grayscale();}
+.gallery li:hover .content{
+  bottom: 0;
+  transition-delay: 0.3s;
+}
+.gallery li:hover:before{
+  top: 0;
+  transition-delay: 1s;
+}
+.container:hover .overlay{display: none;}
+/*------ ARTIST 배너 삽입 끝------ */
+/* -----ACTOR 배너삽입-------- */
+
+
+/* ---연기자배너 흘러가는속성---- */
+@keyframes title-ani{
+  0%{transform: translateX(0);}
+  100%{transform: translateX(-100%);}
+}
+/* -- 연기자이름 흘러가는 애니속성 */
+.title-text{
+  border: 1px solid #e0e0e0;
+  padding: 20PX;
+  width: 1300px;
+  display: flex;
+  white-space: nowrap;  /* 텍스트가 가로로 나열되면서 밑으로 떨어지는것을 막기 위함 */
+  font-size: 22px;
+  font-weight: 300;
+  color: rgb(26,95,116);
+  overflow: hidden; 
+  border-radius: 35px;
+  /* --연기자이름 흘러가는 애니속성--- */
+}
+.title-text .title-wrap{
+  animation: title-ani 12S linear infinite;
+}
+.title-text:hover .title-wrap{
+  animation-play-state: inherit;
+  color: #b34c23;
+  cursor: pointer;
+}
+
+
+/* (2) */
+@keyframes row1-ani{  /* 왼쪽으로 흘러감 */
+  0%{transform: translateX(0);}
+  100%{transform: translateX(-30%);}
+}
+@keyframes row2-ani{  /* 오른쪽으로 흘러감 */
+  0%{transform: translateX(0);}
+  100%{transform: translateX(70%);}
+}
+
+.banner-slide{
+  /* border: 5px solid #000; */
+  width: 1300px;
+  margin: 100px auto 10px;
+  overflow: hidden;
+}
+.banner-slide .row{
+  position: relative;
+  width: inherit;
+  height: 500px;
+}
+.banner-slide .row .row-inner{
+  display: flex;
+  position: absolute;
+  height: 100%;
+  top: 0;
+}
+.banner-slide .row1 .row-inner{
+  left: 0;
+  animation: row1-ani 20s linear infinite alternate;
+}
+.banner-slide .row2 .row-inner{
+  right: 0;
+  animation: row2-ani 20s linear infinite alternate;
+}
+.banner-slide:hover .row-inner {
+  animation-play-state: paused;
+  cursor: pointer;
+}
+
+.banner-slide .row2{  /* 구분선 */
+  border-top: 3px solid #ffffff;
+}
+.banner-slide .row:before,
+.banner-slide .row:after{
+  content: '';
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 250px;
+  height: 500px;
+  z-index: 2;
+  background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+}
+.banner-slide .row:before{left: 0;}
+.banner-slide .row:after{
+  right: 0;
+  transform: rotateY(180deg);
+}
+
+/* 섹션4 */
+
+.s4-content{
+  display: flex;
+  
+}
+.s4-left{
+  flex: 1;
+  margin-top: 50px;
+  padding: 20px 0px;
+}
+.s4-right{
+  flex: 1;
+}
+#s4 .section-inner .s4-content:nth-of-type(2){
+  flex-direction: row-reverse;
+}
+
+.s4-right img{
+  width: 100%;
+  height:495px;
+  object-fit: cover;
+}
+
+.foot-menu{
+ background-color: #333;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+    color: #c4c4c4;
+    font-size: 13px;
+  }
+  .address{
+    font-style: normal; /*address태그에 기본적으로 적용되는 기울임 해지*/
+    color: #c4c4c4;
+    background-color: #333;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    font-size: 11px;
+    
+  }
+
+
+
+
+
